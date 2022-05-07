@@ -1,4 +1,4 @@
-# *Java102 Programme*
+# _Java102 Programme_
 
 ## Access Modifiers
 
@@ -64,5 +64,38 @@ Java'da "final" deyimi, önüne yazıldığı öğenin değerini bir kez tanıml
 Bir sabit değeri tanımlandıktan sonra değiştirilemeyeceği için, final ile tanımlanmış bir değişkenin "public" olmasında bir sorun olmayacaktır.
 
 NOT : Sabit tanımlarken isimler büyük harflerle yazılır. Sabit adı birden fazla sözcükten oluşuyorsa, sözcükler altçizgi ( \_ ) ile birbirlerinden ayrılır. Örneğin en fazla kayıt sayısını ifade edecek sabitin adı şöyle verilebilir: PATIKA_DEV_JAVA_102
+
+</details>
+
+## Encapsulation
+
+<details>
+
+<summary> 
+Click for details..</summary>
+
+#### Encapsulation (Kapsülleme)
+
+Sarmalama ilkesi, bir sınıfa ait değişkenlerin veya niteliklerin ancak o sınıfa ait metotlar tarafından değiştirilebilmesi ve okunabilmesi ilkesidir. Bu ilke sayesinde nesnelerde oluşacak anlamsızlıkların önüne geçilebilir.
+
+Ayrıca değişkenlere sınıfların dışından erişim olmaması ve bir sınıf içindeki değişkenlerin nasıl ve ne kadar olacağının da başka kodlardan saklanmış olması anlamına gelir. Böylelikle biz değişkenlerimizi sarmalayarak istenmeyen durumlardan korunacak bir filtre haline dönüştürebiliriz. Bunu bir örnek ile anlamaya çalışalım.
+
+> Kapsülleme ile kullanırken sınıf niteliklerini diğer tarafta rahatça kullanılmasın diye private erişim belirleyici kullandıktan sonra veri değişimlerini sağlamak için getter setter yapılarını kullanarak değer yönetimini güvenli bir şekilde yapabilmekteyiz.
+> Örneğin;
+
+```java
+public class Student{
+    private String name;
+    public Student(){
+    }
+
+    public setName(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return this.name;
+    }
+}
+```
 
 </details>
