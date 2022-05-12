@@ -28,6 +28,11 @@ public class Academician extends Employee {
 		this.title = title;
 	}
 
+	@Override
+	public void join() {
+		System.out.println(this.getName() + " joined :)" + super.getClass().getName());
+	}
+
 	public void joinLecture() {
 		System.out.println("Lab assistant " + this.getName() + " joined to lecture ");
 	}

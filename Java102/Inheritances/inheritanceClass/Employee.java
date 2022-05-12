@@ -46,15 +46,25 @@ public class Employee {
 	}
 
 	public void join() {
-		System.out.println(this.name + " " + this.surname + " joined ..");
+		System.out.println(this.getName() + " " + this.getSurname() + " joined ..");
+	}
+
+	// method overloading //
+	public void join(String joinHour) {
+		System.out.println(this.getName() + " joined at " + joinHour);
+	}
+
+	public void join(String joinHour, String exitHour) {
+		System.out.println(this.getName() + " joined at " + joinHour + "and " + this.getName()
+				+ " will exit from university at " + exitHour);
 	}
 
 	public void exit() {
-		System.out.println(this.name + " " + this.surname + " exitting from school");
+		System.out.println(this.getName() + " " + this.getSurname() + " exitting from school");
 	}
 
 	public void refectory() {
-		System.out.println(this.name + " " + this.surname + " Joined to refectory");
+		System.out.println(this.getName() + " " + this.getSurname() + " Joined to refectory");
 	}
 
 }

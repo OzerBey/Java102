@@ -11,6 +11,7 @@ public class LabAssistant extends Assistant {
 		System.out.println(this.getName() + "joined to labs");
 	}
 
+	@Override
 	public void joinLecture() {
 		System.out.println("Lab assistant joined to labs lecture");
 	}
