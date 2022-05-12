@@ -55,7 +55,7 @@ public class Employee {
 	}
 
 	public void join(String joinHour, String exitHour) {
-		System.out.println(this.getName() + " joined at " + joinHour + "and " + this.getName()
+		System.out.println(this.getName() + " joined at " + joinHour + " and " + this.getName()
 				+ " will exit from university at " + exitHour);
 	}
 
@@ -67,4 +67,10 @@ public class Employee {
 		System.out.println(this.getName() + " " + this.getSurname() + " Joined to refectory");
 	}
 
+	public void joinedOnes(Employee[] loginEmployees) {
+		for (Employee e : loginEmployees) {
+			e.join();
+		}
+
+	}
 }

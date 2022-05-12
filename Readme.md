@@ -201,3 +201,41 @@ Extra Notes:
 **Aşırı yükleme**, bir sınıfın içine ata sınıflarındaki protected ya da public tanımlanmış yöntemlerle aynı isimde ve farklı parametre listesine sahip yeni yöntemler yazılarak da gerçekleştirilebilir. Çünkü bu sınıf ata sınıfındaki yöntemleri kalıtımla alacaktır.
 
 > Yöntem Geçersiz Kılma ise bir alt sınıfın içine doğrudan ya da dolaylı ata sınıflarından gelen bir (ya da daha fazla) yöntemin aynısının (aynı yöntem adı ve aynı parametre listesi) kodlanmasına verilen addır.</details>
+
+## Polymorphism
+
+<details>
+<summary>Click for details..</summary>
+
+#### Çok Biçimlilik (Polymorphism)
+
+Çok biçimlilik aynı görevin veya işin farklı yollarla yapılabilmesini ifade eder. Nesne, aynı davranışı farklı formlar ve görünüşler ile yerine getirebilir.
+
+Bunu yapabilmek için iki yöntem vardır.
+
+**Overriding in Java (Ezme)**
+
+**Overloading in Java (Aşırı yükleme)**
+
+**_instanceof - polymorphism ilişkisi_**
+
+Obje vereceğiz objenin hangi sınıftan olduğuna bakacağız
+
+Alt sınıfı aynı zamanda Ebeveyn sınıfından miras alıyor. Bu yüzden superclass'la kıyaslanırsa inheritance olduğu için true döner.
+
+> Bütün classlar objeden türüyor.(Object class)
+
+Polymorphism kullanmazsak bütün nesneleri instanceof ile kontrol etmemiz gerekir.
+
+Yeni bir sınıf üretirsek ve Hayvan sınıfından miras alırsa yine kontrol etmemiz gerekecek ama polymorphism bu iş yükünü azaltıyor.
+
+```java
+ // Temel Gösterim - example of instance
+        Kedi kedi = new Kedi("Pamuk");
+
+        if (kedi instanceof Kedi){
+            System.out.println("Bu nesne Kedi sınıfından");
+        }
+```
+
+</details>

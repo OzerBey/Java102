@@ -30,7 +30,7 @@ public class Academician extends Employee {
 
 	@Override
 	public void join() {
-		System.out.println(this.getName() + " joined :)" + super.getClass().getName());
+		System.out.println(this.getName() + " joined :) from class " + super.getClass().getName());
 	}
 
 	public void joinLecture() {
