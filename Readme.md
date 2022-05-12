@@ -149,36 +149,55 @@ Eğer bir A sınıfın B sınıfından kalıtım yapması isteniyorsa, aşağıd
 }
 ```
 
-****Kalıtım Türleri****
+\***\*Kalıtım Türleri\*\***
 
 1. Tek Yönlü Kalıtım (Single Inheritance)
+
    > Bir sınıfın başka bir sınıfı genişlettiği alt ve ata sınıf ilişkisini ifade eder.
-   ![image](https://user-images.githubusercontent.com/49093196/168011717-2e06f1db-cd26-4d4f-946f-a641da2c70eb.png)
+   > ![image](https://user-images.githubusercontent.com/49093196/168011717-2e06f1db-cd26-4d4f-946f-a641da2c70eb.png)
 
 2. Çoklu Kalıtım (Multiple Inheritance)
    > Bir sınıfın birden fazla sınıfı miras almasını ifade eder; bu, bir alt sınıfın iki ata sınıfa sahip olduğu anlamına gelir.
-   ![image](https://user-images.githubusercontent.com/49093196/168011854-849173a9-5c25-4b8d-bfa0-ea89fe10ac4e.png)
+   > ![image](https://user-images.githubusercontent.com/49093196/168011854-849173a9-5c25-4b8d-bfa0-ea89fe10ac4e.png)
 
-**Not** *: Java çoklu kalıtımı desteklemez. (Interface kullanılır)*
+**Not** _: Java çoklu kalıtımı desteklemez. (Interface kullanılır)_
 
 3. Çok Seviyeli Kalıtım (Multilevel Inheritance)
+
    > Bir sınıfa ait alt sınıfın başka sınıfları genişletmesine denir.
-    Bu örnekte , C sınıfı B sınıfını miras alır, B sınıfı ise A sınıfını miras alır. C sınıfı dolaylı yoldan A sınıfınıda miras almış olur.
+   > Bu örnekte , C sınıfı B sınıfını miras alır, B sınıfı ise A sınıfını miras alır. C sınıfı dolaylı yoldan A sınıfınıda miras almış olur.
 
 4. Hiyerarşik Kalıtım (Hierarchical Inheritance)
-    > Birden fazla sınıfın aynı sınıfı genişlettiği bir alt ve üst sınıf ilişkisini ifade eder.
-    ![image](https://user-images.githubusercontent.com/49093196/168012002-b18778f1-0af6-49a2-b8f0-a59f492aab4b.png)
+
+   > Birden fazla sınıfın aynı sınıfı genişlettiği bir alt ve üst sınıf ilişkisini ifade eder.
+   > ![image](https://user-images.githubusercontent.com/49093196/168012002-b18778f1-0af6-49a2-b8f0-a59f492aab4b.png)
 
 5. Hibrit Kalıtım (Hybrid Inheritance)
-    > Programda birden fazla kalıtım türünün kombinasyonuna denir. Örneğin, A ve B sınıfı, C sınıfını genişletir ve başka bir D sınıfı, A sınıfını genişletir, bu bir hibrit kalıtım örneğidir, çünkü bu, tek yönlü ve hiyerarşik kalıtımın bir birleşimidir.
-    ![image](https://user-images.githubusercontent.com/49093196/168012049-d1571ec5-75b5-464b-9793-756537afd466.png)
+   > Programda birden fazla kalıtım türünün kombinasyonuna denir. Örneğin, A ve B sınıfı, C sınıfını genişletir ve başka bir D sınıfı, A sınıfını genişletir, bu bir hibrit kalıtım örneğidir, çünkü bu, tek yönlü ve hiyerarşik kalıtımın bir birleşimidir.
+   > ![image](https://user-images.githubusercontent.com/49093196/168012049-d1571ec5-75b5-464b-9793-756537afd466.png)
 
-Extra Notes: 
+Extra Notes:
+
 > ### Kalıtım'da Constructor Zinciri ve Super Anahtar Sözcüğü
-Bir sınıfa ait nesne oluşturulurken, o sınıfın bir kurucusunun işletildiğini, kurucunun çalışması tamamlandıktan sonra bellekte artık bir nesnenin oluştuğunu biliyoruz. Kurucuları da nesneleri ilk oluşturuldukları anda anlamlı durumlara taşıyabilmek için kullanıyoruz. Bu durumda, eğer nesnesi oluşturulacak sınıf başka bir sınıfın alt sınıfıysa, önce ataya ait içnesnesinin oluşturulması ve bu nesnenin niteliklerinin ilk değerlerinin verilmesi gerektiğini söyleyebiliriz.
+>
+> Bir sınıfa ait nesne oluşturulurken, o sınıfın bir kurucusunun işletildiğini, kurucunun çalışması tamamlandıktan sonra bellekte artık bir nesnenin oluştuğunu biliyoruz. Kurucuları da nesneleri ilk oluşturuldukları anda anlamlı durumlara taşıyabilmek için kullanıyoruz. Bu durumda, eğer nesnesi oluşturulacak sınıf başka bir sınıfın alt sınıfıysa, önce ataya ait içnesnesinin oluşturulması ve bu nesnenin niteliklerinin ilk değerlerinin verilmesi gerektiğini söyleyebiliriz.
 
 > İçiçe nesnelerin oluşabilmesi için nesnelerin içten dışa doğru oluşması gerekir. İç-nesnenin oluşabilmesi için, nesnesi oluşturulacak sınıfa ait kurucu işletilmeye başladığı zaman ilk iş olarak ata sınıfa ait kurucu çağrılır. Eğer ata sınıf da başka bir sınıfın alt sınıfıysa, bu kez o sınıfın kurucusu çağrılır. Kurucu zinciri alt sınıftan ata sınıfa doğru bu şekilde ilerler. En üstte, kalıtım ağacının tepesindeki sınıfın kurucusunun çalışması sonlandıktan sonra sırası ile alt sınıfların kurucularının çalışması sonlanacaktır. Böylece içiçe nesneler sıra ile oluşturularak en son en dıştaki nesne oluşturulmuş olur ve kurucu zinciri tamamlanır.
 
 > ### Super Kullanımı
-Eğer ata sınıfta varsayılan kurucu yoksa ve programcı alt sınıftaki kurucunun içinde ata sınıfın hangi kurucusunun çağrılacağını belirtmezse derleme hatası alınacaktır. Çünkü derleyici aksi belirtilmedikçe ata sınıfın varsayılan kurucusunu çağıran super() kodunu üretecektir. Ata sınıfın hangi kurucusunun çağrılacağı, super anahtar sözcüğü ile birlikte verilen parametrelere göre belirlenir. Nasıl ki new işleci ile birlikte kullandığımız parametreler hangi kurucunun çağrılacağını belirliyorsa, super anahtar sözcüğü ile birlikte kullanılan parametreler de aynı şekilde ata sınıfın hangi kurucusunun işletileceğini belirler.
+>
+> Eğer ata sınıfta varsayılan kurucu yoksa ve programcı alt sınıftaki kurucunun içinde ata sınıfın hangi kurucusunun çağrılacağını belirtmezse derleme hatası alınacaktır. Çünkü derleyici aksi belirtilmedikçe ata sınıfın varsayılan kurucusunu çağıran super() kodunu üretecektir. Ata sınıfın hangi kurucusunun çağrılacağı, super anahtar sözcüğü ile birlikte verilen parametrelere göre belirlenir. Nasıl ki new işleci ile birlikte kullandığımız parametreler hangi kurucunun çağrılacağını belirliyorsa, super anahtar sözcüğü ile birlikte kullanılan parametreler de aynı şekilde ata sınıfın hangi kurucusunun işletileceğini belirler.
+
 </details>
+
+## Method Override
+
+<details><summary>Click for details..</summary>
+
+#### Metot Overriding (Metod Ezme)
+
+> Aynı isimde farklı parametre listesi (sayı, tür ya da sıraları farklı olan parametreler) ile birden fazla yöntem kodlanmasını Yöntemlerin Aşırı Yüklenmesi ( Method Overloading) olarak adlandırmıştık.
+
+**Aşırı yükleme**, bir sınıfın içine ata sınıflarındaki protected ya da public tanımlanmış yöntemlerle aynı isimde ve farklı parametre listesine sahip yeni yöntemler yazılarak da gerçekleştirilebilir. Çünkü bu sınıf ata sınıfındaki yöntemleri kalıtımla alacaktır.
+
+> Yöntem Geçersiz Kılma ise bir alt sınıfın içine doğrudan ya da dolaylı ata sınıflarından gelen bir (ya da daha fazla) yöntemin aynısının (aynı yöntem adı ve aynı parametre listesi) kodlanmasına verilen addır.</details>
