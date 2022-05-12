@@ -25,4 +25,9 @@ public class Instructor extends Academician {
 		System.out.println(this.getName() + " did a exam.");
 	}
 
+	@Override
+	public void join() {
+		System.out.println(this.getName() + " Instructor joined to university");
+	}
+
 }

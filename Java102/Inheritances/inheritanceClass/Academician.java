@@ -1,6 +1,6 @@
 package inheritanceClass;
 
-public class Academician extends Employee {
+public abstract class Academician extends Employee {
 
 	private String part;
 	private String title;
@@ -29,9 +29,7 @@ public class Academician extends Employee {
 	}
 
 	@Override
-	public void join() {
-		System.out.println(this.getName() + " joined :) from class " + super.getClass().getName());
-	}
+	public abstract void join();
 
 	public void joinLecture() {
 		System.out.println("Lab assistant " + this.getName() + " joined to lecture ");

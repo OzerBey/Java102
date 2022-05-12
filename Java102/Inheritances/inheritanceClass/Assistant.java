@@ -22,4 +22,9 @@ public class Assistant extends Academician {
 		System.out.println("Assistant " + this.getName() + " did a quiz");
 	}
 
+	@Override
+	public void join() {
+		System.out.println(this.getName() + "Assistant joined lecture");
+	}
+
 }
