@@ -250,7 +250,7 @@ Nesne yönelimli programlamada Soyutlama (Abstraction) ilkesi, eğer bir sınıf
 
 Soyutlama, bir sınıfa veya metoda temel görevlerin tanımlanması, detayların ise tanımlanmaması demektir. Temel olarak bir soruna ait çözüme giderken kullanılacak yöntemlerin, ilk etapta daha genel basit ve soyut bir tanımını yapmaktır.
 
-"*abstract*" Anahtar Kelimesi ve Soyut Sınıf Kavramı (Abstract Class)
+"_abstract_" Anahtar Kelimesi ve Soyut Sınıf Kavramı (Abstract Class)
 
 Soyutlama kavramı sınıfın içindeki iç işleyişi dışarıdan izole etmek, yani gizlemektir. Örneğin: bilgisayarı kullanırken çoğu kullanıcı bilgisayarın iç işleyişinden haberi olmaz. Hafızanın işlemciyle haberleşmesi, işlemler arası senkronizasyon, klavyeden girilen değerlerin ekrana yansıması gibi birçok işlemin detayı kullanıcılardan gizlenmiş durumdadır. Kullanıcılar sadece bu fonksiyonları veya işlevleri bir arayüz vasıtasıyla çağırıp kullanmaktadır. İç detaylarına müdahale etmemektedir.
 
@@ -258,19 +258,20 @@ Aynı şekilde Java'da sınıflarımızı tasarlarken bazı fonksiyonların ve i
 
 Soyutlama için Java'da iki yöntem mevcuttur:
 
-* "interface" tanımlamak
-* "abstract" sınıf tanımlamak
+- "interface" tanımlamak
+- "abstract" sınıf tanımlamak
+
 #### Soyut Sınıf (Abstract Class)
 
->"abstract" anahtar kelimesi ile tanımlanan sınıflardır. Sınıfın içinde soyut ("abstract") metotlar veya normal fonksiyonlar tanımlanabilir. Soyut sınıflardan "new" anahtar kelimesi ile bir nesne oluşturulamaz.
+> "abstract" anahtar kelimesi ile tanımlanan sınıflardır. Sınıfın içinde soyut ("abstract") metotlar veya normal fonksiyonlar tanımlanabilir. Soyut sınıflardan "new" anahtar kelimesi ile bir nesne oluşturulamaz.
 
-*Soyut Sınıf Özellikleri*
+_Soyut Sınıf Özellikleri_
 
-* "abstract" anahtar kelimesi ile tanımlanmış olması gerekiyor.
-* Soyut veya soyut olmayan fonksiyonlar tanımlanabilir.
-* Soyut sınıflardan "new" anahtar kelimesi ile nesne oluşturulamaz.
-* Kurucu metodu ve static fonksiyonlar tanımlanabilir.
-* "final" kelimesi ile tanımlanmış fonksiyonları içerebilir. Bu final fonksiyonlar alt sınıflarda ezilemezler (override).
+- "abstract" anahtar kelimesi ile tanımlanmış olması gerekiyor.
+- Soyut veya soyut olmayan fonksiyonlar tanımlanabilir.
+- Soyut sınıflardan "new" anahtar kelimesi ile nesne oluşturulamaz.
+- Kurucu metodu ve static fonksiyonlar tanımlanabilir.
+- "final" kelimesi ile tanımlanmış fonksiyonları içerebilir. Bu final fonksiyonlar alt sınıflarda ezilemezler (override).
 
 ```java
 // abstract sınıf örneği
@@ -302,12 +303,12 @@ public abstract class Doping {
 
 > Yukarıda soyut bir sınıf tanımladık. "abstract" kelimesi ile sınıf tanımladık, ayrıca sınıfın içinde "calculate" isimli "abstract" metot tanımladık. Aynı zamanda soyut olmayan metotlar da tanımladık. Senaryomuzda bir e-ticaret sisteminde "Doping" tipinde ek ürünler olduğunu düşünelim. İlan tarihini güncelleyen bir doping çeşidimiz olsun, bir de üst sırada çıkmanızı sağlayan bir doping olsun. Bu iki alt sınıfta "Doping" isimli sınıftan kalıtım alarak belli özellikleri kendilerine alsınlar. Fakat, her dopingin ücret hesaplama yöntemi birbirinden farklı olabilir. Ayrıca, her dopingin mutlaka fiyat hesaplama fonksiyonu olmalıdır.
 
->Yukarıdaki durumda "abstract" sınıf tanımlayıp diğer doping çeşitleri bu ATA sınıftan kalıtım alacaklardır. "calculate" isimli "abstract" metodu, "metod ezme" (overriding) yöntemiyle ezip metodun içini kendilerine göre dolduracaklardır. Alt sınıflardaki diğer özellikler soyutlama tekniğiyle dış dünyadan gizlenecektir. Dış dünyadan dopingi kullanmak isteyen baka bir sınıf veya kod parçası doping nesnesi üzerindeki "calculate" fonksiyonunu çağırıp fiyatı hesaplacaktır. Diğer iç hesaplama ve çalışma detaylarını bilmeyecektir.
+> Yukarıdaki durumda "abstract" sınıf tanımlayıp diğer doping çeşitleri bu ATA sınıftan kalıtım alacaklardır. "calculate" isimli "abstract" metodu, "metod ezme" (overriding) yöntemiyle ezip metodun içini kendilerine göre dolduracaklardır. Alt sınıflardaki diğer özellikler soyutlama tekniğiyle dış dünyadan gizlenecektir. Dış dünyadan dopingi kullanmak isteyen baka bir sınıf veya kod parçası doping nesnesi üzerindeki "calculate" fonksiyonunu çağırıp fiyatı hesaplacaktır. Diğer iç hesaplama ve çalışma detaylarını bilmeyecektir.
 
 ```java
 public class TopOfListDoping extends Doping {
 
-	public TopOfListDoping(double price) 
+	public TopOfListDoping(double price)
 	{
 		super.setPrice(price);
 	}
@@ -334,12 +335,12 @@ public class UptodateDoping extends Doping {
 	// Doping tiplerinde sadece "calculate" isimli fonksiyonu dış dünyaya açtık. Diğer tüm fonksiyonlar ve özellikler sınıf içinde kaldı.
 	@Override
 	public double calculate() {
-		
+
 		return calculateTaxes() + commisionRate();
 	}
 
 	private double calculateTaxes() {
-		
+
 		double totalTaxValue = 0;
 		for(int i=0; i < super.getTaxes().length; i++) {
 			totalTaxValue += super.getTaxes()[i];
@@ -352,6 +353,80 @@ public class UptodateDoping extends Doping {
 	}
 }
 ```
->**Note**
+
+> **Note**
+
     "Doping" soyut sınıfından kalıtımla gelen, "calculate" isimli soyut metodu metot ezmesi yöntemiyle alt sınıf kendi ihtiyacına göre dolduruyor. "UptodateDoping" isimli doping tipinde vergiler fiayta dahil olduğu için komisyon oranı eklenip ve vergiler hesaplanıp ücret belirleniyor. Görüldüğü gibi her doping çeşidinin fiyat hesaplama yöntemleri birbirinden farklıdır. Soyutlama ile sınıflara ait iç çalışma detayları gizlenmiş oluyor. Doping tiplerinde sadece "calculate" isimli fonksiyonu dış dünyaya açtık. Diğer tüm fonksiyonlar ve özellikler sınıf içinde kaldı.
+
+</details>
+
+## Interfaces
+
+<details> <summary>Click for details..</summary>
+
+#### Interface (Arayüzler)
+
+Java'da soyutlamayı sağlamanın bir başka yolu "interface" tanımlamaktır. "interface" 'ler abstract sınıflara göre soyutlama oranı çok yüksektir. Çünkü, "interface" içinde sadece soyut fonksiyonlar tanımlayabilirsiniz. Metot gövdesi olan normal fonksiyonlar tanımlayamazsınız.
+
+"interface"ler sözleşmeler gibidir. Bir sınıf eğer bir interface'den kalıtım alıyorsa o "interface"de tanımlı olan tüm soyut özellikleri karşılamak zorundadır. Eğer, kalıtım alan sınıf "interface"deki bazı metotlara ihtiyaç duymuyorsa yazılım tasarımınızda bir problem var demektir. Bu noktada "Interface Segregation" yapmanızı öneririm. "Interface Segregation" ile interface'ler alt interface tanımlarına bölünebilir.
+
+> Neden **"interface"** kullanırız?
+
+Bir sınıf "interface"den kalıtım alıyorsa "implements" anahtar kelimesi kullanılır. Örnek bir tanımlamaya göz atalım.
+
+```java
+// interface anahtar kelimesi ile bir interface tipi tanımlanır.
+public interface PaymentProvider {
+
+	// interface içinde yer alan fonksiyonların hepsi soyuttur.
+	// Bu soyut fonksiyonlar interface'den kalıtım alan alt sınıflarda doldurulur.
+	public boolean cancelCharge(int chargeId);
+
+	public int charge(double totalPrice);
+
+	public String loadInvoice(int chargeId);
+
+}
+```
+
+> Alt sınıflar interface'den kalıtım alırlar.
+
+```java
+public class AssecoPaymentSystem implements PaymentProvider {
+
+	@Override
+	public boolean cancelCharge(int chargeId) {
+		return false;
+	}
+
+	@Override
+	public int charge(double totalPrice) {
+		return 0;
+	}
+
+	@Override
+	public String loadInvoice(int chargeId) {
+		return null;
+	}
+}
+
+public class IyzicoPaymentSystem implements PaymentProvider {
+
+	@Override
+	public boolean cancelCharge(int chargeId) {
+		return false;
+	}
+
+	@Override
+	public int charge(double totalPrice) {
+		return 0;
+	}
+
+	@Override
+	public String loadInvoice(int chargeId) {
+		return null;
+	}
+}
+```
+
 </details>
